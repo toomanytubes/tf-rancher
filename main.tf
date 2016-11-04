@@ -15,7 +15,6 @@ module "vpc" {
   environment        = "${var.environment}"
   region             = "${var.region}"
   cidr               = "${var.cidr}"
-  subnet_name_prefix = "rancher"
 }
 
 module "security_groups" {
