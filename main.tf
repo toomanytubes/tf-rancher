@@ -11,23 +11,22 @@ provider "aws" {
 module "vpc" {
   source      = "github.com/toomanytubes/tf_vpc"
 
-  name        = "rancher"
-  environment = "dev"
+  name        = "${var.name}"
+  environment = "${var.environment}"
   region      = "${var.region}"
-  cidr        = "10.42.0.0/16"
+  cidr        = "${var.cidr}"
 }
 
 module "security_groups" {
-  source      = "./security_groups"
+  source = "./security_groups"
 
-  vpc_id = "${module.vcp_dev.id}"
-
+  vpc_id = "${var.module.vpc.id}"
 }
 
 
 output "region" {
-  value = "${module.vpc_dev.region}"
+  value = "${module.vpc.region}"
 }
 output "cidr_dev" {
-  value = "${module.vpc_dev.cidr}"
+  value = "${module.vpc.cidr}"
 }
