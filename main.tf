@@ -11,10 +11,11 @@ provider "aws" {
 module "vpc" {
   source      = "github.com/toomanytubes/tf_vpc"
 
-  name        = "${var.name}"
-  environment = "${var.environment}"
-  region      = "${var.region}"
-  cidr        = "${var.cidr}"
+  name               = "${var.name}"
+  environment        = "${var.environment}"
+  region             = "${var.region}"
+  cidr               = "${var.cidr}"
+  subnet_name_prefix = "rancher"
 }
 
 module "security_groups" {
