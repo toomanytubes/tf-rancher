@@ -11,7 +11,7 @@ provider "aws" {
 module "vpc" {
   source      = "github.com/toomanytubes/tf_vpc"
 
-  vpc_name           = "${var.name}"
+  name               = "${var.name}"
   environment        = "${var.environment}"
   region             = "${var.region}"
   cidr               = "${var.cidr}"
