@@ -20,13 +20,13 @@ module "vpc" {
 module "security_groups" {
   source = "./security_groups"
 
-  vpc_id = "${var.module.vpc.id}"
+  vpc_id = "${module.vpc.id}"
 }
 
 
 output "region" {
   value = "${module.vpc.region}"
 }
-output "cidr_dev" {
+output "cidr" {
   value = "${module.vpc.cidr}"
 }
